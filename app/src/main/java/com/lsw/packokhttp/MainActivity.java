@@ -15,6 +15,7 @@ import okhttp3.Request;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private static final String URL = "https://api.douban.com/v2/movie/top250?start=0&count=10";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getLightOkHttp(){
-        Request request = CommonRequest.createGetRequest("http://www.baidu.com",null);
+        Request request = CommonRequest.createGetRequest(URL,null);
         CommonOkHttpClient.get(request,new DisposeDataHandle(new DisposeDataListener() {
             @Override
             public void onSuccess(Object o) {
